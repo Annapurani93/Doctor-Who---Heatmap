@@ -40,11 +40,11 @@ ggplot(data,aes(x=as.factor(season),y=as.factor(ep_num),fill=rating,size=rating_
         plot.title=element_text(size=14, face="bold",colour="white",margin=margin(b=15)),
         plot.subtitle = element_text(size=12, colour="white",margin=margin(b=25)),
         plot.caption=element_text(size=10,colour="white",hjust=0,margin=margin(t=20)))+
-  labs(title="DOCTOR WHO: HIGHEST-RATED EPISODES OF EACH SEASON",
-       subtitle="The ratings are for each episode are encoded by colour and the size of the dot denotes the number of ratings",
+  labs(title="DOCTOR WHO: THE HIGHEST- AND LOWEST-RATED EPISODES OF THE SHOW",
+       subtitle=str_wrap("Episode 10 of Season 3 where Sally Sparrow receives a cryptic message from the Doctor about a mysterious new enemy species that is after the TARDIS, is the highest-rated episode of the show with an IMDB rating of 9.8. On the other hand, Episode 3 of Season 12 where Graham accidentally teleports himself, the Doctor, Yasmin and Ryan to a luxury resort for rest and they end up discovering deadly secrets, is the lowest-rated, with an IMDB rating of 3.9",100),
        caption = "Data via Tidy Tuesday| Analysis and design: @annapurani93")+
   xlab("-------------SEASONS---------------")+
   ylab("-------------EPISODES--------------")->plot
 
-ggsave("doctorwhoheatmap.png",width=11,height=7)
-
+ggsave("doctorwhoheatmap.png",plot,width=11,height=7)
+ggsave("doctorwhoheatmap.pdf",plot,width=11,height=7)
